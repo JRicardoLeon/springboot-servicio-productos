@@ -1,8 +1,7 @@
 package com.microservicios.springboot.app.productos.entity;
 
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity

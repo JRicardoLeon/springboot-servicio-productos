@@ -11,11 +11,8 @@ import java.util.List;
 @Service
 public class ProductoServiceImpl implements IProductoService{
     @Autowired
-    private final ProductoDao productoDao;
+    private  ProductoDao productoDao;
 
-    public ProductoServiceImpl(ProductoDao productoDao) {
-        this.productoDao = productoDao;
-    }
 
     @Override
     @Transactional(readOnly = true)
