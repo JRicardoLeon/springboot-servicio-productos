@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 public class ProductoController {
@@ -16,7 +17,13 @@ public class ProductoController {
     }
 
     @GetMapping("/buscar/{Id}")
-    public Producto busarProducto(@PathVariable long Id){
+    public Producto busarProducto(@PathVariable long Id) throws InterruptedException {
+        if (Id == 10L){
+            throw new IllegalStateException("Producto no valido.");
+        }
+        if (Id == 3L){
+            TimeUnit.SECONDS.sleep(5L);
+        }
         return iProductoService.findById(Id);
     }
     @GetMapping("/mostrar")
